@@ -2,13 +2,13 @@
 
 /**
  * op_pop - Removes the top element of the stack
- * @stack: entry point into the stack
+ * @stack: entry point into the stack circular list
  * @line_number: opcode line number
  * Return: void
  */
 void op_pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node = NULL;
+	stack_t *node = *stack;
 
 	if (st_data.stack_len == 0)
 	{
@@ -16,10 +16,16 @@ void op_pop(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
-	node = *stack;
-	*stack = node->next;
+
 	if (st_data.stack_len > 1)
-		node->next->prev = NULL;
+	{
+		(*stack)->next->prev = (*stack)->prev; /* points to last */
+		(*stack)->prev->next = (*stack)->next;
+		(*stack) = (*stack)->next;
+	}
+	else
+		(*stack) = NULL;
+
 	free(node);
 	st_data.stack_len--;
 }

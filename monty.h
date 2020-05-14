@@ -26,13 +26,13 @@ typedef struct stack_s
 } stack_t;
 
 
-
 /**
  * struct monty_vars - Stack Struct properties and global variables
  * @stream: buffer read from file
  * @line: entire line from stream
  * @stack_len: number of elements in the stack
  * @stack: data structure doubly linked list
+ * @mode: STACK or QUEUE
  *
  * Description: structure that holds the stack properties like its length
  * for stack, queues, LIFO, FIFO Holberton project
@@ -43,11 +43,14 @@ typedef struct monty_vars
 	char *line;
 	size_t stack_len;
 	stack_t *stack;
+	int mode;
 } st_data_var;
 
 /* Global Variable to hold stack length */
 extern st_data_var st_data;
 
+#define STACK 0
+#define QUEUE 1
 
 /**
  * struct instruction_s - opcode and its function
@@ -77,6 +80,9 @@ void op_mul(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
 void op_mod(stack_t **stack, unsigned int line_number);
 void op_pchar(stack_t **stack, unsigned int line_number);
+void op_pstr(stack_t **stack, unsigned int line_number);
+void op_rotl(stack_t **stack, unsigned int line_number);
+void op_rotr(stack_t **stack, unsigned int line_number);
 
 /* Linked Lists Functions */
 stack_t *add_node(stack_t **stack, int n);
@@ -86,4 +92,5 @@ void m_free_list(void);
 int _is_number(char *p_arg);
 void m_fs_close(void);
 void m_free_line(void);
+
 #endif /* MONTY_H */

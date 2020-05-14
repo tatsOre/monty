@@ -8,12 +8,15 @@
  */
 void op_pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *head = *stack;
+	stack_t *current = *stack;
 	(void)(line_number);
 
-	while (head)
+	while (current)
 	{
-		printf("%d\n", head->n);
-		head = head->next;
+		printf("%d\n", current->n);
+		current = current->next;
+
+		if (current == *stack) /* curr reaches circular head */
+			return;
 	}
 }

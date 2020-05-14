@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /* Initialize Global Struct = stream, line, stack len, stack */
-st_data_var st_data = {NULL, NULL, 0, NULL};
+st_data_var st_data = {NULL, NULL, 0, NULL, STACK};
 
 /**
  * main - Monty ByteCodes files interpreter
@@ -39,7 +39,6 @@ int main(int argc, char *argv[])
 		if (op_code && *op_code != '#')
 			get_op_func(op_code, &st_data.stack, line_number);
 	}
-
 	exit(EXIT_SUCCESS);
 }
 
@@ -66,6 +65,9 @@ void get_op_func(char *op_code, stack_t **stack, unsigned int line_number)
 		{"div", op_div},
 		{"mod", op_mod},
 		{"pchar", op_pchar},
+		{"pstr", op_pstr},
+		{"rotl", op_rotl},
+		{"rotr", op_rotr},
 		{NULL, NULL}
 	};
 
@@ -80,6 +82,5 @@ void get_op_func(char *op_code, stack_t **stack, unsigned int line_number)
 	}
 	dprintf(STDERR_FILENO, "L%u: unknown instruction %s\n",
 		line_number, op_code);
-
 	exit(EXIT_FAILURE);
 }
