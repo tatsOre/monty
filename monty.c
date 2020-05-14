@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	{
 		line_number++;
 		op_code = strtok(st_data.line, "\r\n\t ");
-		if (op_code)
+		if (op_code && *op_code != '#')
 			get_op_func(op_code, &st_data.stack, line_number);
 	}
 
@@ -61,6 +61,10 @@ void get_op_func(char *op_code, stack_t **stack, unsigned int line_number)
 		{"swap", op_swap},
 		{"nop", op_nop},
 		{"add", op_add},
+		{"sub", op_sub},
+		{"mul", op_mul},
+		{"div", op_div},
+		{"mod", op_mod},
 		{NULL, NULL}
 	};
 
