@@ -8,7 +8,7 @@
  */
 void op_swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
+	int fn, sn;
 
 	if (st_data.stack_len < 2)
 	{
@@ -16,12 +16,8 @@ void op_swap(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
-
-	node = (*stack)->next;
-	node->prev = NULL;  /* (*stack)->prev; NULL if len == 2*/
-	(*stack)->prev = node;
-	(*stack)->next = node->next; /* NULL if len == 2*/
-	node->next->prev = (*stack);
-	node->next = (*stack);
-	*stack = node;
+	fn = (*stack)->n;
+	sn = (*stack)->next->n;
+	(*stack)->n = sn;
+	(*stack)->next->n = fn;
 }

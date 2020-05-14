@@ -23,7 +23,6 @@ stack_t *add_node(stack_t **stack, int n)
 	{
 		new_node->prev = new_node; /* same */
 		new_node->next = new_node; /* Points to itself */
-		(*stack) = new_node;
 	}
 	else /* if stack_len > 0 */
 	{
