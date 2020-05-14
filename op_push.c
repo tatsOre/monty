@@ -36,8 +36,8 @@ int _is_number(char *p_arg)
 {
 	int i = 0;
 
-       	if (p_arg[i] == '-' || p_arg[i] == '+')
-       		i++;
+	if (p_arg[i] == '-' || p_arg[i] == '+')
+		i++;
 
 	while (p_arg[i])
 	{
