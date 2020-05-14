@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 {
 	char *op_code = NULL;
 	size_t len = 0;
-	ssize_t nread = 0;
 	unsigned int line_number = 0;
 
 	if (argc != 2)
@@ -32,7 +31,7 @@ int main(int argc, char *argv[])
 	atexit(m_free_line);
 	atexit(m_free_list);
 	atexit(m_fs_close);
-	while ((nread = getline(&st_data.line, &len, st_data.stream)) != -1)
+	while (getline(&st_data.line, &len, st_data.stream) != EOF)
 	{
 		line_number++;
 		op_code = strtok(st_data.line, "\r\n\t ");
@@ -68,6 +67,8 @@ void get_op_func(char *op_code, stack_t **stack, unsigned int line_number)
 		{"pstr", op_pstr},
 		{"rotl", op_rotl},
 		{"rotr", op_rotr},
+		{"stack", op_stack},
+		{"queue", op_queue},
 		{NULL, NULL}
 	};
 
