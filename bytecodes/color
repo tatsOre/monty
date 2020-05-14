@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $1 == "--help" ] ; then
+    echo "Executes a command and colorizes all errors occured"
+    echo "Example: `basename ${0}` wget ..."
+    echo "(c) o_O Tync, ICQ# 1227-700, Enjoy!"
+    exit 0
+    fi
+
+# Temp file to catch all errors
+TMP_ERRS=$(mktemp)
+
+# Execute command
+"$@" 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" | tee --append $TMP_ERRS; done)
+EXIT_CODE=$?
+
+# Display all errors again
+if [ -s "$TMP_ERRS" ] ; then
+    echo -e "\n\n\n\e[01;31m === ERRORS === \e[0m"
+    cat $TMP_ERRS
+    fi
+rm -f $TMP_ERRS
+
+# Finish
+exit $EXIT_CODE
