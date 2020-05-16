@@ -41,20 +41,18 @@ julien@ubuntu:~/monty$
 ```
 #### The monty program
 
-Usage:  `$ monty file`
-
-where file is the path to the file containing Monty byte code
+Usage:  `$ monty file`. Where file is the path to the file containing Monty byte code.
 
 Opcode  | Description
 ------------- | -------------
 push  | Pushes an element to the stack.
-pall  | Prints all the values on the stack, starting from top of stack.
-pint  | Prints the value at the TOS, followed by a new line
+pall  | Prints all the values on the stack, starting from top of the stack.
+pint  | Prints the value at the top of the stack, followed by a new line
 pop   | Removes the top element of the stack.
 nop   | Doesnt do anything.
 swap  | Swaps the top two elements of the stack.
 add   | Adds the top two elements of the stack.
-sub   | Subtracts the top element of the stack from the second top element.
+sub   | Subtracts the top element of the stack from the second top element of the stack.
 mul   | Multiplies the second top element of the stack with the top of stack.
 div   | Divides the second top element of the stack by the top of stack.
 mod   | Computes the rest of the division of the second top element of the stack by the top element of the stack.
