@@ -46,22 +46,22 @@ Usage:  `$ monty file`. Where file is the path to the file containing Monty byte
 Opcode  | Description
 ------------- | -------------
 `push <int>`  | Pushes an element to the stack.
-`pall`  | Prints all the values on the stack, starting from top of the stack.
-`pint`  | Prints the value at the top of the stack, followed by a new line
-`pop`   | Removes the top element of the stack.
-`nop`   | Does nothing.
-`swap`  | Swaps the top two elements of the stack.
-`add`   | Adds the top two elements of the stack.
-`sub`   | Subtracts the top element of the stack from the second top element of the stack.
-`mul`   | Multiplies the second top element of the stack with the top of stack.
-`div`   | Divides the second top element of the stack by the top of stack.
-`mod`   | Computes the rest of the division of the second top element of the stack by the top element of the stack.
-`pchar` | Prints the char at the top of the stack, followed by a new line.
-`pstr`  | Prints the string starting at the TOS, followed by a new line.
-`rotr`  | Rotates the stack to the bottom. The last element of the stack becomes the top element of the stack.
-`rotl`  | Rotates the stack to the top. The top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
-`stack` | Sets the format of the data to a stack (LIFO). This is the default behavior of the program.
-`queue` | Sets the format of the data to a queue (FIFO).
+`pall`     | Prints all the values on the stack, starting from top of the stack.
+`pint`     | Prints the value at the top of the stack, followed by a new line
+`pop`      | Removes the top element of the stack.
+`nop`      | Does nothing.
+`swap`     | Swaps the top two elements of the stack.
+`add`      | Adds the top two elements of the stack.
+`sub`      | Subtracts the top element of the stack from the second top element of the stack.
+`mul`      | Multiplies the second top element of the stack with the top of stack.
+`div`      | Divides the second top element of the stack by the top of stack.
+`mod`      | Computes the rest of the division of the second top element of the stack by the top element of the stack.
+`pchar`    | Prints the char at the top of the stack, followed by a new line.
+`pstr`     | Prints the string starting at the TOS, followed by a new line.
+`rotr`     | Rotates the stack to the bottom. The last element of the stack becomes the top element of the stack.
+`rotl`     | Rotates the stack to the top. The top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
+`stack`    | Sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+`queue`    | Sets the format of the data to a queue (FIFO).
 
 
 ### Learning Objectives:
